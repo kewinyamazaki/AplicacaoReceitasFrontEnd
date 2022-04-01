@@ -1,0 +1,87 @@
+:host .p-menubar{
+  background-color: greenyellow !important;
+  box-shadow: none;
+}
+
+.conteudo{
+  flex: 1;
+  margin: 8% 8%;
+  width: 84%;
+}
+
+.titulo{
+  color: #BE6474;
+  font-size: 3em;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+p span{
+  color: #BE6474;
+  font-weight: 900;
+}
+
+.descricao{
+  color: rgb(15, 76, 92);
+  font-size: 1.5em;
+  font-weight: 200;
+  margin-bottom: 100px;
+}
+
+.landing-button{
+  background-color: #BE6474;
+  border-radius: 30px;
+  padding: 10px 60px 10px 60px;
+  margin-left: 10%;
+}
+
+@media (max-width: 650px) {
+  .conteudo{
+    margin-top: 11vh;
+  }
+  .titulo{
+    text-align: center;
+    font-size: 1.8em;
+  }
+  .descricao{
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 50px;
+  }
+  .landing-button{
+    display: block;
+    position: relative;
+    margin: auto auto;
+  }
+}
+
+.circulo-base{
+  position: absolute;
+}
+.c-amarelo{
+  clip-path: circle(50vh at 93vw 90vh);
+  background: linear-gradient(180deg, #FDD1A7 40vh, #EF8D30 140vh);
+}
+.c-vinho{
+  clip-path: circle(25vh at calc(100vw - 75vh) 95vh);
+  background: linear-gradient(90deg, #5F0F40 calc(100vw - 100vh), #000000 calc(100vw - 50vh));
+}
+.c-rosa{
+  clip-path: circle(28vh at calc(100vw - 55vh) 68vh);
+  background: linear-gradient(180deg, #BE6474 40vh, #5F0F40 90vh);
+}
+
+@media (max-width: 650px) {
+  .c-amarelo{
+    clip-path: circle(40vw at 93vw 90vh);
+    background: linear-gradient(180deg, #FDD1A7 40vh, #EF8D30 140vh);
+  }
+  .c-vinho{
+    clip-path: circle(25vw at calc(100vw - 62vw) 95vh);
+    background: linear-gradient(90deg, #5F0F40 20vw, #000000 70vw);
+  }
+  .c-rosa{
+    clip-path: circle(22vw at calc(100vw - 48vw) 78vh);
+    background: linear-gradient(180deg, #BE6474 40vh, #5F0F40 90vh);
+  }
+}

@@ -1,0 +1,25 @@
+.perfil{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+  padding: 2%;
+}
+
+.botao-favoritos{
+  border-color: transparent;
+  background-color: #C26878;
+}
+
+
+.c-amarelo{
+  clip-path: circle(80vh at 110vw 50vh);
+  background: linear-gradient(180deg, #fdd1a7 0, #ef8d30 120%);
+}
+.c-vinho{
+  clip-path: circle(70vh at 30vw 135vh);
+  background: linear-gradient(90deg, #5F0F40 0, #000000 76vw);
+}
+.c-rosa{
+  clip-path: circle(30vh at 5vh -10vh);
+  background: linear-gradient(180deg, #5F0F40 -5vh, #BE6474 20vh );
+}

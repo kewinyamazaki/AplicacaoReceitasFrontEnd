@@ -1,0 +1,143 @@
+<app-mensagem #appMensagem></app-mensagem>
+
+<div class="container pagina-base p-6">
+  <table class="titulo-table mb-4 w-100">
+    <tbody>
+      <td class="titulo-receita p-2">
+        <h1 style="font-weight: bold;">{{receita.nome}}</h1>
+      </td>
+      <td *ngIf="receita.logadoComoAutor" style="width: 90px">
+        <button pButton
+          pRipple
+          title="Alterar"
+          alt="Alterar"
+          (click)="atualizarReceita()"
+          type="button"
+          icon="pi pi-pencil"
+          class="mr-2"
+          [ngClass]="{'p-button-warning': !receitaAtualizando}">
+        </button>
+        <button pButton
+          pRipple
+          title="Excluir"
+          alt="Excluir"
+          (click)="removerReceita()"
+          type="button"
+          icon="pi pi-trash"
+          class="p-button-danger">
+        </button>
+      </td>
+    </tbody>
+  </table>
+  <div class="p-fluid p-grid">
+    <div class="p-field p-grid">
+      <label for="descricaoReceita" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Descrição:</label>
+      <label>{{receita?.descricao}}</label>
+    </div>
+
+    <div class="p-field p-grid">
+      <label for="modoPreparo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Modo de preparo:</label>
+      <ul>
+        <li *ngFor="let passo of receita?.modo_preparo.split('\n')">
+          {{passo}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="tempoPreparo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Tempo de preparo em minutos:</label>
+        <label>{{receita?.tempo_preparo}}</label>
+      </div>
+      <div class="col-6">
+        <label for="rendimento" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Rendimento em porções:</label>
+        <label>{{receita?.rendimento}}</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="ingredientes" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Ingredientes:</label>
+        <ul>
+          <li *ngFor="let i of receita?.ingredientes">
+            {{ingredientePorExtenso(i)}}
+          </li>
+        </ul>
+      </div>
+
+    <div *ngIf="receita?.informacoes_adicionais" class="p-field p-grid">
+      <label for="informacoesAdicionais" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Informações Adicionais:</label>
+      <label>{{receita?.informacoes_adicionais}}</label>
+    </div>
+  </div>
+  <hr class="my-6">
+  <div>
+    <form [formGroup]="formPublicarComentario">
+      <label for="publicarComentario">Publicar um comentário:</label>
+      <div class="row">
+        <div class="col-10">
+          <input id="comentario" type="text" formControlName="comentario" pInputText [placeholder]="isLoggedIn() ? '' : 'Entre em uma conta para poder comentar'" [attr.disabled]="isLoggedIn() ? null : ''">
+        </div>
+        <div class="col-2">
+          <button class="btn btn-light form-control botao-comentar" (click)="comentar()" [attr.disabled]="isLoggedIn() ? null : ''"><b>Comentar</b></button>
+        </div>
+      </div>
+      <div class="pb-4">
+        <ng-template #nenhumComentario>
+          Ainda não há comentários!
+        </ng-template>
+        <table *ngIf="comentarios.length>0; else nenhumComentario" class="comentarios-table mb-4 w-100">
+          <tbody>
+            <tr *ngFor="let comentario of comentarios">
+              <td style="width: 54px;">
+                <img class="imagem-avatar" src="assets/avatar.jpg">
+              </td>
+              <td>
+                <label>
+                  <h4 class="m-0">{{comentario.nome_usuario}}</h4>
+                  <p *ngIf="comentarioAtualizando!==comentario.idcomentario; else editar">{{comentario.conteudo}}</p>
+                  <ng-template #editar>
+                    <div class="w-100">
+                      <input id="edicao" type="text" placeholder={{comentario.conteudo}} formControlName="edicao" pInputText (keyup.enter)="atualizarComentario(comentario)">
+                    </div>
+                  </ng-template>
+                </label>
+              </td>
+              <td>
+                <small>{{comentario.timestamp | date: 'dd/MM/yy - HH:mm'}}</small>
+              </td>
+              <td *ngIf="comentario.logadoComoAutor" style="width: 90px">
+                <button pButton
+                  pRipple
+                  title="Alterar"
+                  alt="Alterar"
+                  (click)="atualizarComentario(comentario)"
+                  type="button"
+                  icon="pi pi-pencil"
+                  class="mr-2"
+                  [ngClass]="{'p-button-warning': comentarioAtualizando!==comentario.idcomentario}">
+                </button>
+                <button pButton
+                  pRipple
+                  title="Excluir"
+                  alt="Excluir"
+                  (click)="removerComentario(comentario.idcomentario)"
+                  type="button"
+                  icon="pi pi-trash"
+                  class="p-button-danger">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-alterar-receita #modalAlteracao (eventoAlteracao)="eventoAlteracao()"></app-alterar-receita>
+<div class="fundo">
+  <div class="circulo-base c-amarelo"></div>
+  <div class="circulo-base c-vinho"></div>
+  <div class="circulo-base c-rosa"></div>
+</div>

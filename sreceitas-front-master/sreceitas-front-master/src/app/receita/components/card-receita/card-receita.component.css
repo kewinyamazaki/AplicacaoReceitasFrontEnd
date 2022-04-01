@@ -1,0 +1,117 @@
+.card-receita {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  border-radius: 15px;
+  box-shadow: 0 1px 10px 0 rgba(0,0,0,0.25);
+  color: #0F4C5C;
+}
+
+.card-clicavel {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.card-receita:hover {
+  transition: all 0.04s;
+  transform: scale(1.05);
+}
+
+.card-receita-imagem {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bookmark-vector path {
+  fill:#BE6474;
+}
+
+.bookmark-tooltip {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  font-weight: 500;
+  color: #BE6474;
+}
+
+.bookmark-vector {
+  position: absolute;
+  top: -17px;
+  right: 20px;
+  z-index: 1;
+}
+
+.bookmark-active {
+  top: 0px;
+}
+
+.bookmark-vector:not(.bookmark-active) {
+  display: none;
+}
+
+.bookmark-vector:not(.bookmark-active):hover {
+  transition: all 0.2s;
+  transform: translateY(17px);
+}
+
+.bookmark-vector:hover + .bookmark-tooltip{
+  display: block;
+}
+
+.card-receita:hover .bookmark-vector {
+  display: block;
+}
+
+.card-receita-dados {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  width: 75%;
+  max-height: 60%;
+  padding: 0.9rem;
+  top: 15%;
+  right: 0;
+}
+
+.card-receita-dados p {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-receita-info {
+  position: absolute;
+  background-color: #575757;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 2px 0px 5px #00000044;
+  color: white;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  bottom: 0;
+  right: 25px;
+  width: 50%;
+  height: 25%;
+}
+
+.card-receita-autor {
+  position: absolute;
+  background-color: white;
+  font-size: 0.8rem;
+  max-width: 35%;
+  border-radius: 0 15px;
+  padding: 2px 15px 0 15px;
+  bottom: 0;
+  left: 0;
+}
+
+.card-receita-doellipsis,
+.card-receita-doellipsis * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

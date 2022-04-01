@@ -1,0 +1,52 @@
+<p-dialog [(visible)]="display">
+
+  <p-header>
+    Alteração de Receita
+  </p-header>
+
+  <form [formGroup]="modal">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <label for="nome" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Nome:</label>
+        <input id="nome" type="text" formControlName="nome" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="descricao" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Descricao:</label>
+        <input id="descricao" type="text" formControlName="descricao" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="modoPreparo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Modo de Preparo:</label>
+        <input id="modoPreparo" type="text" formControlName="modoPreparo" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="tempoPreparo" class="label">Tempo de Preparo em Minutos:</label>
+        <input id="tempoPreparo" type="text" formControlName="tempoPreparo" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="rendimento" class="label">Rendimento em porção:</label>
+        <input id="rendimento" type="text" formControlName="rendimento" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="ingredientes" class="label">Inredientes:</label>
+        <input id="ingredientes" type="text" formControlName="ingredientes" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="informacoesAdicionais" class="label">Informacoes Adicionais:</label>
+        <input id="informacoesAdicionais" type="text" formControlName="informacoesAdicionais" pInputText>
+      </div>
+    </div>
+
+  </form>
+
+  <p-footer>
+    <p-button type="button" label="Alterar" class="p-button-success p-button-rounded" (click)="alterar()">
+    </p-button>
+  </p-footer>
+
+</p-dialog>

@@ -1,0 +1,35 @@
+<app-mensagem #appMensagem></app-mensagem>
+<div class="container">
+  <form class="perfil my-4">
+    <button class="btn btn-dark form-control botao-favoritos mb-6" (click)="irParaFavoritos()">Ir para favoritos</button>
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <label for="nome" class="p-col-12 p-md-2 p-mb-md-0 label">Nome:</label>
+        <label>{{usuario.nome}}</label>
+      </div>
+      <br>
+      <br>
+      <div class="p-field p-grid">
+        <label for="email" class="p-col-12 p-md-2 p-mb-md-0 label">E-mail:</label>
+        <label>{{usuario.email}}</label>
+      </div>
+      <br>
+      <br>
+      <div class="p-field p-grid">
+        <label for="endereco" class="p-col-12 p-md-2 p-mb-md-0 label">Endereço:</label>
+        <label>{{usuario.endereco}}</label>
+      </div>
+      <br><br>
+      <div class="p-field p-grid">
+        <label for="dataNascimento" class="p-col-12 p-md-2 p-mb-md-0 label">Data de nascimento:</label>
+        <label>{{usuario.dataNascimento | date: 'dd/MM/yyyy'}}</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="fundo">
+  <div class="circulo-base c-amarelo"></div>
+  <div class="circulo-base c-vinho"></div>
+  <div class="circulo-base c-rosa"></div>
+</div>

@@ -1,0 +1,56 @@
+<div class="pagina-base">
+  <div class="pagina-base-imagem" title="Foto por Jeff Sheldon em Unsplash"></div>
+
+  <div class="p-4">
+    <h2 class="apresentacao"><b>Receitas Favoritas</b></h2>
+    <p class="apresentacao m-0">Todas as receitas que você marcou como favoritas!</p>
+  </div>
+
+  <hr class="m-0">
+
+  <div class="p-4 px-6">
+    <!-- <p class="mb-2" style="color: rgb(15, 76, 92);">Digite os ingredientes que você possui (pressione "Enter" entre eles):</p>
+    <div class="row">
+      <div class="col-11">
+        <form [formGroup]="formInputIngredient">
+          <p-chips class="p-fluid" formControlName="ingredientes"></p-chips>
+        </form>
+      </div>
+      <div class="col-1">
+        <button (click)="buscarReceitas()" type="button" class="btn btn-primary" style="margin-left: 20px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search"
+          viewBox="0 0 16 16">
+            <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="px-6 pb-6">
+    <div class="row" style="min-height: 300px;">
+      <div class="col-lg-6 pb-4" *ngFor="let receita of receitas">
+        <card-receita
+          (visualizar)="visualizarReceita($event)"
+          (desfavoritar)="removerFavorito($event)"
+          [receita]="receita"
+          [favoritado]="receita.favorito"
+        >
+        </card-receita>
+      </div>
+    </div>
+
+  <p-paginator
+    [rows]= "10"
+    [totalRecords] = "totalRegistros"
+    [rowsPerPageOptions] = "[10,20,30]"
+    (onPageChange)="paginate($event)">
+  </p-paginator>
+</div>
+
+<div class="fundo">
+  <div class="circulo-base c-amarelo"></div>
+  <div class="circulo-base c-vinho"></div>
+  <div class="circulo-base c-rosa"></div>
+</div>

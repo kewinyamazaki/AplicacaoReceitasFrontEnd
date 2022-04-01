@@ -1,0 +1,146 @@
+<app-mensagem #appMensagem></app-mensagem>
+
+<div class="pagina-base pb-4">
+  <div class="pagina-base-imagem" title="Foto por S O C I A L . C U T em Unsplash"></div>
+
+  <div class="p-4">
+    <h2 *ngIf="modoAlteracao(); else headerCadastro" class="apresentacao"><b>Alterar sua Receita</b></h2>
+    <ng-template #headerCadastro>
+      <h2 class="apresentacao"><b>Cadastrar uma Receita</b></h2>
+      <p class="apresentacao m-0">Contribua com nosso repositório enviando uma receita e comparilhando-a com outros
+        usuários...</p>
+    </ng-template>
+  </div>
+
+  <hr class="m-0">
+
+  <form [formGroup]="formCadastroReceita" class="p-4">
+    <div class="p-fluid p-grid">
+      <div class="row">
+        <div class="col-12">
+          <label for="nomeReceita" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Nome da receita:</label>
+          <br>
+          <input id="nomeReceita" type="text" formControlName="nomeReceita" pInputText>
+          <div *ngIf="validaCampo('nomeReceita')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="descricaoReceita" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Descrição da receita:</label>
+          <br>
+          <textarea [rows]="5" [cols]="30" pInputTextarea formControlName="descricaoReceita"
+            autoResize="autoResize"></textarea>
+          <div *ngIf="validaCampo('descricaoReceita')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="modoPreparo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Modo de preparo:</label>
+          <br>
+          <textarea [rows]="5" [cols]="30" formControlName="modoPreparo" autoResize="autoResize"
+            pInputTextarea></textarea>
+          <div *ngIf="validaCampo('modoPreparo')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 p-auto">
+          <label for="tempoPreparo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Tempo de preparo em minutos:</label>
+          <br>
+          <p-inputNumber id="tempoPreparo" formControlName="tempoPreparo"></p-inputNumber>
+          <div *ngIf="validaCampo('tempoPreparo')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="rendimento" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Rendimento em porções:</label>
+          <br>
+          <p-inputNumber id="rendimento" formControlName="rendimento"></p-inputNumber>
+          <div *ngIf="validaCampo('rendimento')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="quantidade" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Quantidade:</label>
+          <br>
+          <p-inputNumber id="quantidade" formControlName="quantidade">
+          </p-inputNumber>
+        </div>
+
+        <div class="col-sm-4 col-md-3 py-2">
+          <label for="medida" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Medida:</label>
+          <br>
+          <p-dropdown id="medida" formControlName="medida" [options]="medidas" optionLabel="medida"
+            placeholder="-- Escolha uma medida --" filterBy="nome"></p-dropdown>
+          <div *ngIf="validaCampo('medida')">
+            <small class="text-danger">{{campoObrigatorio}}</small>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <label for="ingredientes" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Ingredientes:</label>
+          <br>
+          <input id="ingredientes" type="text" formControlName="ingredientes" pInputText>
+        </div>
+
+        <div class="col-sm-12 col-md-1 py-2 flex align-items-end">
+          <button class="btn btn-dark form-control border-0" (click)="adicionarIngrediente()"
+            style="height: 42; background-color: #BE6474; font-weight: 500; font-size: larger;">+</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="d-inline" *ngIf="avisoParenteses">
+          <small class="text-danger">*Para inserir um ingrediente em "unidade(s)" informe seu nome com um parênteses de
+            pluralidade, ex: ao invés de ovo/ovos digite ovo(s)</small>
+        </div>
+      </div>
+      <div class="d-inline">
+        <p-chip class="mr-1" *ngFor="let i of ingredientesArray" (onRemove)="removerIngrediente(i.key)"
+          [removable]="true">{{i.value}}</p-chip>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <label for="imagem" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Selecionar foto:</label>
+          <p-fileUpload #fileUpload
+            invalidFileSizeMessageSummary="{0}: O tamanho do arquivo excede o tamanho máximo permitido, "
+            invalidFileSizeMessageDetail="a imagem deve conter até {0}." id="imagem" [customUpload]="true" [auto]="true"
+            (uploadHandler)="onUpload($event)" accept="image/*" maxFileSize="81920">
+          </p-fileUpload>
+          <!-- <input id="imagem" type="text" formControlName="imagem" pInputText> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <label for="informacoesAdicionais" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Informações
+            Adicionais:</label>
+          <textarea [rows]="5" [cols]="30" formControlName="informacoesAdicionais" autoResize="autoResize"
+            pInputTextarea></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-4 offset-md-4">
+      <button (click)="cadastrar()" class="btn btn-dark form-control border-0"
+        style="background-color: #BE6474; font-weight: 500; font-size: larger;">{{modoAlteracao() ? "Alterar" :
+        "Cadastrar"}} receita</button>
+    </div>
+  </form>
+</div>
+
+<div class="fundo">
+  <div class="circulo-base c-amarelo"></div>
+  <div class="circulo-base c-vinho"></div>
+  <div class="circulo-base c-rosa"></div>
+</div>
+
+<!-- (click)="adicionarIngrediente($event)" -->

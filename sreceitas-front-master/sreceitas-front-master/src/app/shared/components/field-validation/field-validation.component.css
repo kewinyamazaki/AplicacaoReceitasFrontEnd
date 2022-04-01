@@ -1,0 +1,9 @@
+
+:host ::ng-deep .p-inline-message .p-inline-message-text{
+  font-size: 0.7em;
+}
+
+:host ::ng-deep .p-inline-message.p-inline-message-error{
+  display: contents !important;
+  margin-top: 1%;
+}

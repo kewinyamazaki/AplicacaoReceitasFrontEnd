@@ -1,0 +1,39 @@
+<p-dialog [(visible)]="display">
+
+  <p-header>
+    Alteração de Usuário
+  </p-header>
+
+  <form [formGroup]="modal">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <label for="nome" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Nome:</label>
+        <input id="nome" type="text" formControlName="nome" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="endereco" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">Endereço:</label>
+        <input id="endereco" type="text" formControlName="endereco" pInputText>
+      </div>
+
+
+      <div class="p-field p-grid">
+        <label for="email" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0 label">E-mail:</label>
+        <input id="email" type="text" formControlName="email" pInputText>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="dataNascimento" class="label">Data de nascimento:</label>
+        <p-calendar dateFormat="dd/mm/yy" formControlName="dataNascimento" [monthNavigator]="true"
+          [yearNavigator]="true" yearRange="1930:2030"></p-calendar>
+      </div>
+    </div>
+
+  </form>
+
+  <p-footer>
+    <p-button type="button" label="Alterar" class="p-button-success p-button-rounded" (click)="alterar()">
+    </p-button>
+  </p-footer>
+
+</p-dialog>

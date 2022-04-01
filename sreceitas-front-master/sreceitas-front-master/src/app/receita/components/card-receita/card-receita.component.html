@@ -1,0 +1,29 @@
+<div class="card-receita">
+  <div class="card-clicavel">
+    <div *ngIf="isLoggedIn()">
+      <svg class="bookmark-vector" [ngClass]="{'bookmark-active': receita.favorito}" (click)="onFavoritar()" width="24" height="37" viewBox="0 0 24 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0H0V37H1.6077L12 25.9L22.3923 37H24V0Z"/>
+      </svg>
+      <div class="bookmark-tooltip">{{receita.favorito ? "Remover dos favoritos" : "Adicionar aos favoritos"}}</div>
+    </div>
+    <div (click)="onVisualizar()">
+      <img *ngIf="receita.imagem; else imagemPadrao" class="card-receita-imagem" [src]="'data:image/png;base64,' + receita.imagem">
+      <ng-template #imagemPadrao>
+        <img class="card-receita-imagem" src="assets/logo.png">
+      </ng-template>
+      <div class="card-receita-dados card-receita-doellipsis">
+        <h4><b>{{receita.nome}}</b></h4>
+        <hr class="m-0">
+        <p class="m-0">{{receita.descricao}}</p>
+      </div>
+      <div class="card-receita-info card-receita-doellipsis">
+        <span>Leva {{receita.tempo_preparo}} {{receita.tempo_preparo>1?"minutos":"minuto"}} para preparar</span>
+        <br>
+        <span>Rende {{receita.rendimento}} {{receita.rendimento>1?"porções":"porção"}}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="receita.nome_usuario !== null" class="card-receita-autor card-receita-doellipsis">
+    Por <b>{{receita.nome_usuario}}</b>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+:host ::ng-deep .p-fluid .p-inputtext{
+  border-radius: 7px;
+}
+
+:host ::ng-deep .p-inputtext:enabled:hover {
+  border-color: rgba(227, 100, 20, 0.3);
+}
+:host ::ng-deep .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem rgba(227, 100, 20, 0.3);
+  border-color: rgba(227, 100, 20, 0.6);
+}
+
+:host ::ng-deep .p-button{
+  background-color: #BE6474;
+  border: #BE6474;
+}
+
+:host ::ng-deep .p-fileupload .p-fileupload-buttonbar .p-button.p-fileupload-choose.p-focus{
+  box-shadow: 0 0 0 0.2rem rgba(190, 100, 116, 0.2);
+}
+
+:host ::ng-deep .p-fileupload-choose:not(.p-disabled):hover{
+  background-color: #BE6474;
+  border: #BE6474;
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus{
+  box-shadow: 0 0 0 0.2rem rgba(227, 100, 20, 0.3);
+  border-color: rgba(227, 100, 20, 0.6);
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled):hover{
+  border-color: rgba(227, 100, 20, 0.3);
+}
+
+:host ::ng-deep .p-fluid .p-dropdown{
+  border-radius: 7px;
+}
+
+.cadastro-receita{
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-right: 10%;
+  margin-bottom: 8%;
+  background-color: whitesmoke;
+  border-radius: 7px;
+  padding: 2%;
+  box-shadow: 0 0 0.5em gray;
+}
+
+.apresentacao {
+  color: rgb(15, 76, 92);
+  justify-content: center;
+  text-align: center;
+}
+
+.pagina-base-imagem {
+  background: url("/assets/imagem-cadastro-receita.jpg");
+}
+
+.c-amarelo{
+  clip-path: circle(80vh at 110vw 50vh);
+  background: linear-gradient(180deg, #fdd1a7 0, #ef8d30 120%);
+}
+.c-vinho{
+  clip-path: circle(70vh at 30vw 135vh);
+  background: linear-gradient(90deg, #5F0F40 0, #000000 76vw);
+}
+.c-rosa{
+  clip-path: circle(30vh at 5vh -10vh);
+  background: linear-gradient(180deg, #5F0F40 -5vh, #BE6474 20vh );
+}

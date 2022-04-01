@@ -1,0 +1,23 @@
+.fundo{
+  width: 100%;
+  height: 100%;
+  overflow: initial;
+}
+
+.circulo-base {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+}
+
+.c-amarelo{
+  z-index: -2;
+}
+.c-vinho{
+  z-index: -3;
+}
+.c-rosa{
+  z-index: -4;
+}

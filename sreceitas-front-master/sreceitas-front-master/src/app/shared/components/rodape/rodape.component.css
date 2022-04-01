@@ -1,0 +1,73 @@
+.rodape{
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(180deg, #575757 0px, #303030 300px);
+}
+.circulo-rodape{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #2C2C2C;
+  clip-path: circle(max(25vw, 180px) at 85% 45%);
+}
+
+.conteudo-rodape{
+  width: 80%;
+}
+
+.logo-rodape{
+  z-index: 1;
+}
+
+.sections-rodape{
+  width: 50%;
+  max-width: 505px;
+}
+
+.section-rodape{
+  color: #f5f5f5;
+}
+.section-rodape > a{
+  font-size: 0.8em;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.section-rodape > a:hover{
+  transform: scale(1.5);
+}
+.section-rodape > label{
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-rodape.s-mobile{
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .section-rodape:not(.s-mobile){
+    display: none;
+  }
+  .section-rodape.s-mobile{
+    display: block;
+  }
+}
+
+.direitos-rodape {
+  position: relative;
+  bottom: 0px;
+  color: #f5f5f5;
+  background-color: #303030;
+  font-size: 0.8em;
+  padding: 7px;
+  padding-left: 10%;
+}
+
+@media (max-width: 768px) {
+  .rodape{
+    display: none !important;
+  }
+}

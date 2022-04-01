@@ -1,0 +1,106 @@
+*{
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font-family: "Roboto";
+}
+
+body{
+  min-height: 100vh;
+  background-color: #f5f5f5 !important;
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+
+.label{
+  color: rgb(15, 76, 92);
+  font-weight: bold;
+  font-size: large;
+}
+
+.botao{
+  background-color:rgba(227, 100, 20, 0.8);
+  border-radius: 30px;
+  border: none;
+  width: 17%;
+  height: 32px;
+  margin: 1%;
+}
+
+.input{
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  width: 24%;
+  height: 32px;
+  border: transparent;
+  padding-left: 1%;
+  padding-right: 0.5%;
+  margin-left: 1%;
+  margin-right: 5.5%;
+}
+
+
+.input-longo{
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  width: 71.6%;
+  height: 32px;
+  border: transparent;
+  padding-left: 1%;
+  margin-left: 1%;
+}
+
+.input-longo-II{
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  width: 73.9%;
+  height: 32px;
+  border: transparent;
+  padding-left: 1%;
+  margin-left: 1%;
+}
+
+.input-longo-III{
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  width: 73.6%;
+  height: 32px;
+  border: transparent;
+  padding-left: 1%;
+  margin-left: 1%;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+
+.cadastro{
+  margin-left: 15%;
+  margin-top: 8%;
+  margin-right: 15%;
+  margin-bottom: 2%;
+  background-color: whitesmoke;
+  border-radius: 7px;
+  padding: 2%;
+  box-shadow: 0 0 0.5em gray;
+}
+
+.login{
+  margin-left: 27%;
+  margin-top: 8%;
+  margin-right: 27%;
+  margin-bottom: 2%;
+  background-color: whitesmoke;
+  border-radius: 7px;
+  box-shadow: 0 0 0.5em gray;
+}
+
+

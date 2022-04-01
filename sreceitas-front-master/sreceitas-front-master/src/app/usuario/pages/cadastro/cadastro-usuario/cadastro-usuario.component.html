@@ -1,0 +1,88 @@
+<app-mensagem #appMensagem></app-mensagem>
+
+<div class="cadastro-card card d-flex flex-row border-0 my-6">
+  <div class="d-flex m-6 align-items-center flex-fill">
+      <div style="width: 100%">
+        <h1 style="font-weight: bold;">Cadastrar sua conta</h1>
+        <span>Preencha os campos abaixo com seus dados.</span>
+        <form class="p-fluid mt-6" [formGroup]="formCadastro">
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="nome" class="mt-2 label">Nome:</label>
+              <input id="nome" formControlName="nome" type="text" pInputText>
+              <div *ngIf="validaCampo('nome')">
+                <small class="text-danger">{{campoObrigatorio}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="email" class="mt-2 label">E-mail:</label>
+              <input id="email" formControlName="email" type="text" pInputText>
+              <div *ngIf="validaCampo('email')">
+                <small class="text-danger">{{campoObrigatorio}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="senha" class="mt-2 label">Senha:</label>
+              <input id="senha" type="password" formControlName="senha" pInputText/>
+              <div *ngIf="validaCampo('senha')">
+                <small class="text-danger">{{campoObrigatorio}}</small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="confirmaSenha" class="mt-2 label">Confirme sua senha:</label>
+              <input id="confirmaSenha" type="password" formControlName="confirmaSenha" pInputText/>
+              <div *ngIf="validaCampo('confirmaSenha')">
+                <small class="text-danger">{{campoObrigatorio}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5">
+              <label for="dataNascimento" class="mt-2 label">Data de nascimento:</label>
+              <p-calendar dateFormat="dd/mm/yy" formControlName="dataNascimento" [monthNavigator]="true" [yearNavigator]="true" yearRange="1930:2030"
+              [maxDate]="hoje" (onClose)="calendarioTocado=true"></p-calendar>
+              <div *ngIf="validaData('dataNascimento') && calendarioTocado">
+                <small class="text-danger">{{campoObrigatorio}}</small>
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              <label for="endereco" class="mt-2 label">Endereço:</label>
+              <input id="endereco" formControlName="endereco" type="text" pInputText>
+            <div *ngIf="validaCampo('endereco')">
+              <small class="text-danger">{{campoObrigatorio}}</small>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <button class="btn btn-dark form-control border-0" style="background-color: #BE6474; font-weight: 500; font-size: larger;" (click)="cadastrar()">Cadastre-se</button>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center">
+              <button class="btn px-4 botao-login border-0"
+              style="background-color: transparent; color: #BE6474; font-weight: 700; font-size: larger;" (click)="irParaLogin()">Fazer login</button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  <div class="separator"></div>
+  <img class="cadastro-imagem" title="Foto por Iman Zaker em Unsplash" src="/assets/cadastro-imagem.png">
+</div>
+
+<div class="fundo">
+  <div class="circulo-base c-amarelo"></div>
+  <div class="circulo-base c-vinho"></div>
+  <div class="circulo-base c-rosa"></div>
+</div>

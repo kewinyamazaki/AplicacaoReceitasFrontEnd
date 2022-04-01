@@ -1,0 +1,17 @@
+.pagina-base {
+  position: relative;
+  background-color: white;
+  margin: auto;
+  width: 90vw;
+  max-width: 1160px;
+  min-height: calc(100vh - 350px);
+  box-shadow: 0 1px 15px rgba(0,0,0,0.4);
+}
+
+.pagina-base-imagem {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background-size: cover !important;
+  background-position-y: center !important;
+}

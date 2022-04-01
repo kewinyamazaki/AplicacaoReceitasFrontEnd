@@ -1,0 +1,68 @@
+<p-card header = "Lista de Usuários">
+
+<app-mensagem #appMensagem></app-mensagem>
+
+<p-table [value] = "usuarios">
+  <ng-template pTemplate = "header">
+    <tr>
+      <th>
+        Código
+      </th>
+
+      <th [pSortableColumn] = "'nome'">
+        Nome
+        <p-sortIcon [field] = "'nome'"></p-sortIcon>
+      </th>
+
+      <th [pSortableColumn] = "'email'">
+        E-mail
+        <p-sortIcon [field] = "'email'"></p-sortIcon>
+      </th>
+
+      <th [pSortableColumn] = "'dataNascimento'">
+        Data de Nascimento
+        <p-sortIcon [field] = "'dataNascimento'"></p-sortIcon>
+      </th>
+
+      <th [pSortableColumn] = "'endereco'">
+        Endereço
+        <p-sortIcon [field] = "'endereco'"></p-sortIcon>
+      </th>
+
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate = "body" let-usuario>
+    <tr>
+      <td>{{usuario.userId}}</td>
+      <td>{{usuario.nome}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.dataNascimento | date:'dd/MM/yyyy'}}</td>
+      <td>{{usuario.endereco}}</td>
+      <td>
+        <button pButton
+          pRipple
+          title="Excluir"
+          alt="Excluir"
+          (click)="excluir(usuario)"
+          type="button"
+          icon="pi pi-trash"
+          class="p-button-danger">
+        </button>
+
+        <button pButton
+          pRipple
+          title="Alterar"
+          alt="Alterar"
+          (click)="abrirModal(usuario)"
+          type="button"
+          icon="pi pi-pencil"
+          class="p-button-warning">
+      </button>
+    </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<app-alterar-usuario #modalAlteracao (eventoAlteracao) ="eventoAlteracao()"></app-alterar-usuario>

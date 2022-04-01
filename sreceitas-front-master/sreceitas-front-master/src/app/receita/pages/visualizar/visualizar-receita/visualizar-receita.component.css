@@ -1,0 +1,60 @@
+li {
+  list-style: none;
+}
+
+.titulo-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.titulo-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.titulo-receita {
+  font-weight: bold;
+  color: rgb(15, 76, 92);
+}
+
+.botao-comentar {
+  background-color: transparent;
+  border: transparent;
+  color: rgb(15, 76, 92);
+  font-family: "Roboto";
+  font-size: 1.2rem;
+}
+
+.comentarios-table  {
+  border-collapse: separate;
+  border-spacing: 0px 20px;
+}
+
+.comentarios-table > * {
+  vertical-align : middle;
+}
+
+.imagem-avatar {
+  width: 52px;
+  border-radius: 27px;
+  margin-right: 10px;
+}
+
+.comentario{
+  display: inline;
+}
+
+.c-amarelo {
+  clip-path: circle(80vh at 110vw 50vh);
+  background: linear-gradient(180deg, #fdd1a7 0, #ef8d30 120%);
+}
+.c-vinho {
+  clip-path: circle(60vh at 15vw 135vh);
+  background: linear-gradient(90deg, #5f0f40 0, #000000 76vw);
+}
+.c-rosa {
+  clip-path: circle(30vh at 5vh -10vh);
+  background: linear-gradient(180deg, #5f0f40 -5vh, #be6474 20vh);
+}
+

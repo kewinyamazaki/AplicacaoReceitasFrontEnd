@@ -1,0 +1,95 @@
+
+/*CSS sobreescrito do primeng*/
+
+:host ::ng-deep .p-fluid .p-inputtext{
+  border-radius: 7px;
+}
+
+:host ::ng-deep .p-inputtext:enabled:hover {
+  border-color: rgba(227, 100, 20, 0.3);
+}
+:host ::ng-deep .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem rgba(227, 100, 20, 0.3);
+  border-color: rgba(227, 100, 20, 0.6);
+}
+
+:host ::ng-deep .p-button-label{
+  color: rgb(15, 76, 92);
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+:host ::ng-deep .p-fluid .p-button{
+  background-color: rgba(227, 100, 20, 0.8);
+  border: none;
+  border-radius: 7px;
+  left: 6%;
+}
+
+
+:host ::ng-deep p-password .invalid > div > input{
+  border: red;
+}
+
+/*CSS para o formulario de cadastro*/
+
+.cadastro-card{
+  width: 90vw;
+  max-width: 1360px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.cadastro-imagem{
+  max-width: 530px;
+  max-height: 680px;
+  border-radius: 0 15px 15px 0
+}
+
+h1, span{
+  color: #254F5F;
+}
+
+.botao-login:enabled:hover{
+  background-color: rgba(190, 100, 116, 0.1) !important;
+}
+
+.separator{
+  width: 12px;
+  background-color: #BE6474;
+}
+
+.validar-senhas{
+  border: 1px solid #f44336;
+}
+
+/* small{
+  font-size: 0.8em;
+} */
+
+/*CSS para os circulos do fundo*/
+
+.c-amarelo{
+  --xpos-amarelo: calc(30vw + 90vh);
+  clip-path: circle(80vh at max(var(--xpos-amarelo), 90vw) 50vh);
+  background: linear-gradient(180deg, #FDD1A7 0, #EF8D30 120%);
+}
+.c-vinho{
+  clip-path: circle(70vh at 30vw 135vh);
+  background: linear-gradient(90deg, #5F0F40 0, #000000 76vw);
+}
+.c-rosa{
+  clip-path: circle(30vh at 5vh -10vh);
+  background: linear-gradient(180deg, #5F0F40 -5vh, #BE6474 20vh );
+}
+
+@media (max-width: 1124px) {
+  .separator, .cadastro-imagem{
+    display: none;
+  }
+}
+
